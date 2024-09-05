@@ -1,0 +1,100 @@
+/* General body styling (if needed for both parts) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+    background-color: black; /* Black background */
+    color: white; /* White text */
+}
+
+h1 {
+    color: #fff;
+}
+
+/* Table styling */
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #333;
+    color: white;
+    border: 1px solid #444;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+/* Table Row and Cell Classes for Coloring */
+
+/* Number cell colors (Red/Black/Green for 0 and 00) */
+.number-cell.red-cell {
+    background-color: #ff3333; /* Red */
+    color: white;
+}
+
+.number-cell.black-cell {
+    background-color: #333333; /* Black */
+    color: white;
+}
+
+.number-cell.green-cell {
+    background-color: #4CAF50; /* Green for 0 and 00 */
+    color: white;
+}
+
+/* Odd/Even cell colors */
+.odd-cell {
+    background-color: #ff6600; /* Orange for Odd */
+    color: white;
+}
+
+.even-cell {
+    background-color: #007bff; /* Blue for Even */
+    color: white;
+}
+
+/* Red/Black cell colors */
+.red-cell {
+    background-color: #ff3333; /* Red */
+    color: white;
+}
+
+.black-cell {
+    background-color: #333333; /* Black */
+    color: white;
+}
+
+/* Small/Big cell colors */
+.small-cell {
+    background-color: #ff6666; /* Light red for Small */
+    color: white;
+}
+
+.big-cell {
+    background-color: #66ff99; /* Green for Big */
+    color: white;
+}
+
+/* Dozens */
+.dozen-cell {
+    background-color: #ffcc00; /* Yellow for Dozens */
+    color: black;
+}
+
+/* Row positions */
+.row-cell {
+    background-color: #cc3300; /* Dark orange for Row position */
+    color: white;
+}
+
+/* Alternating row colors for the table body */
+#tracker-body tr:nth-child(even) {
+    background-color: #444;
+}
+
+#tracker-body tr:nth-child(odd) {
+    background-color: #555;
+}
