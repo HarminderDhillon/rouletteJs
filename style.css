@@ -1,4 +1,4 @@
-/* Set the background to black and text color to white */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -7,19 +7,18 @@ body {
     color: white; /* White text */
 }
 
-/* Header styling */
 h1 {
-    color: #fff; /* White color for the header */
+    color: #fff;
 }
 
 #roulette-board-wrapper {
-    border: 3px solid #fff; /* White border */
+    border: 3px solid #fff;
     padding: 20px;
-    border-radius: 15px; /* Rounded corners */
+    border-radius: 15px;
     width: fit-content;
-    margin: 0 auto 40px auto; /* Added bottom margin of 40px */
-    background-color: #222; /* Dark background for the board */
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6); /* Drop shadow for effect */
+    margin: 0 auto 40px auto;
+    background-color: #222;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
 }
 
 #roulette-board {
@@ -45,13 +44,12 @@ h1 {
     cursor: pointer;
     border-radius: 8px;
     font-weight: bold;
-    color: white; /* White text color */
+    color: white;
 }
 
-/* "0" should be on the left of the second row */
 .cell.zero {
     background-color: green;
-    margin-right: 10px; /* Pushes the "0" to the left a bit */
+    margin-right: 10px;
 }
 
 .cell:nth-child(odd):not(.zero) {
@@ -63,7 +61,7 @@ h1 {
 }
 
 .cell:hover {
-    background-color: darkgray; /* Dark gray on hover */
+    background-color: darkgray;
 }
 
 /* Table styling */
@@ -71,22 +69,85 @@ table {
     width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
-    background-color: #333; /* Dark background for the table */
-    color: white; /* White text in the table */
-    border: 1px solid #444; /* Darker border */
+    background-color: #333;
+    color: white;
+    border: 1px solid #444;
 }
 
 th, td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #444; /* Darker border for cells */
+    border: 1px solid #444;
+}
+
+/* Table Row and Cell Classes for Coloring */
+
+/* Number cell colors (Red/Black/Green for 0) */
+.number-cell.red-cell {
+    background-color: #ff3333; /* Red */
+    color: white;
+}
+
+.number-cell.black-cell {
+    background-color: #333333; /* Black */
+    color: white;
+}
+
+.number-cell.green-cell {
+    background-color: #4CAF50; /* Green for 0 */
+    color: white;
+}
+
+/* Odd/Even cell colors */
+.odd-cell {
+    background-color: #ff6600; /* Orange for Odd */
+    color: white;
+}
+
+.even-cell {
+    background-color: #007bff; /* Blue for Even */
+    color: white;
+}
+
+/* Red/Black cell colors */
+.red-cell {
+    background-color: #ff3333; /* Red */
+    color: white;
+}
+
+.black-cell {
+    background-color: #333333; /* Black */
+    color: white;
+}
+
+/* Small/Big cell colors */
+.small-cell {
+    background-color: #ff6666; /* Light red for Small */
+    color: white;
+}
+
+.big-cell {
+    background-color: #66ff99; /* Green for Big */
+    color: white;
+}
+
+/* Dozens */
+.dozen-cell {
+    background-color: #ffcc00; /* Yellow for Dozens */
+    color: black;
+}
+
+/* Row positions */
+.row-cell {
+    background-color: #cc3300; /* Dark orange for Row position */
+    color: white;
 }
 
 /* Alternating row colors for the table body */
 #tracker-body tr:nth-child(even) {
-    background-color: #444; /* Dark gray for even rows */
+    background-color: #444;
 }
 
 #tracker-body tr:nth-child(odd) {
-    background-color: #555; /* Slightly lighter for odd rows */
+    background-color: #555;
 }

@@ -10,7 +10,7 @@ cells.forEach(cell => {
     });
 });
 
-// Function to add a new row to the table with colored cells
+// Function to add a new row to the table with CSS classes for coloring
 function addNewRow(number) {
     const row = document.createElement('tr');
 
@@ -21,22 +21,22 @@ function addNewRow(number) {
     const dozens = number <= 12 ? '1st Dozen' : number <= 24 ? '2nd Dozen' : '3rd Dozen';
     const rowPosition = number % 3 === 1 ? '1st Row' : number % 3 === 2 ? '2nd Row' : '3rd Row';
 
-    // Create table cells with colored backgrounds
+    // Create table cells with corresponding CSS classes
     row.innerHTML = `
-        <td style="background-color: ${getColorForNumber(number)}; color: white;">${number}</td>
-        <td style="background-color: ${isEven === 'Even' ? '#007bff' : '#ff6600'}; color: white;">${isEven}</td>
-        <td style="background-color: ${isRed === 'Red' ? '#ff3333' : '#333333'}; color: white;">${isRed}</td>
-        <td style="background-color: ${isSmall === 'Small' ? '#ff6666' : '#66ff99'}; color: white;">${isSmall}</td>
-        <td style="background-color: #ffcc00; color: black;">${dozens}</td>
-        <td style="background-color: #cc3300; color: white;">${rowPosition}</td>
+        <td class="number-cell ${getColorClassForNumber(number)}">${number}</td>
+        <td class="${isEven === 'Even' ? 'even-cell' : 'odd-cell'}">${isEven}</td>
+        <td class="${isRed === 'Red' ? 'red-cell' : 'black-cell'}">${isRed}</td>
+        <td class="${isSmall === 'Small' ? 'small-cell' : 'big-cell'}">${isSmall}</td>
+        <td class="dozen-cell">${dozens}</td>
+        <td class="row-cell">${rowPosition}</td>
     `;
 
     // Add the new row at the top of the table
     trackerBody.prepend(row);
 }
 
-// Function to determine the color for the number cell (red, black, or green for 0)
-function getColorForNumber(number) {
-    if (number === 0) return '#4CAF50'; // Green for 0
-    return [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(number) ? '#ff3333' : '#333333'; // Red or Black
+// Function to return the appropriate CSS class for the number cell (red, black, or green for 0)
+function getColorClassForNumber(number) {
+    if (number === 0) return 'green-cell'; // Green for 0
+    return [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(number) ? 'red-cell' : 'black-cell';
 }
