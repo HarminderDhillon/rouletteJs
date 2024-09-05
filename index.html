@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Roulette Tracker Application</h1>
+    <p>This application allows you to track roulette numbers. Click on a number from the board to add it to the table.</p>
+
+    <!-- Roulette Board -->
+    <div id="roulette-board">
+        <!-- Zero -->
+        <div class="row">
+            <div class="cell zero">0</div>
+        </div>
+        <!-- First 12 Numbers -->
+        <div class="row">
+            <div class="cell">3</div>
+            <div class="cell">6</div>
+            <div class="cell">9</div>
+            <div class="cell">12</div>
+            <div class="cell">15</div>
+            <div class="cell">18</div>
+            <div class="cell">21</div>
+            <div class="cell">24</div>
+            <div class="cell">27</div>
+            <div class="cell">30</div>
+            <div class="cell">33</div>
+            <div class="cell">36</div>
+        </div>
+        <!-- Second 12 Numbers -->
+        <div class="row">
+            <div class="cell">2</div>
+            <div class="cell">5</div>
+            <div class="cell">8</div>
+            <div class="cell">11</div>
+            <div class="cell">14</div>
+            <div class="cell">17</div>
+            <div class="cell">20</div>
+            <div class="cell">23</div>
+            <div class="cell">26</div>
+            <div class="cell">29</div>
+            <div class="cell">32</div>
+            <div class="cell">35</div>
+        </div>
+        <!-- Third 12 Numbers -->
+        <div class="row">
+            <div class="cell">1</div>
+            <div class="cell">4</div>
+            <div class="cell">7</div>
+            <div class="cell">10</div>
+            <div class="cell">13</div>
+            <div class="cell">16</div>
+            <div class="cell">19</div>
+            <div class="cell">22</div>
+            <div class="cell">25</div>
+            <div class="cell">28</div>
+            <div class="cell">31</div>
+            <div class="cell">34</div>
+        </div>
+    </div>
+
+    <!-- Table to display the drawn numbers -->
+    <table id="tracker-table">
+        <thead>
+            <tr>
+                <th>Drawn Number</th>
+                <th>Odd/Even</th>
+                <th>Red/Black</th>
+                <th>Small/Big</th>
+                <th>Dozens</th>
+                <th>Rows</th>
+            </tr>
+        </thead>
+        <tbody id="tracker-body">
+            <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
