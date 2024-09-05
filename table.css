@@ -98,3 +98,20 @@ th, td {
 #tracker-body tr:nth-child(odd) {
     background-color: #555;
 }
+
+
+/* Dozen cell colors */
+.yellow-dozen {
+    background-color: #ffcc00; /* Yellow for 1st Dozen */
+    color: black;
+}
+
+.orange-dozen {
+    background-color: orange; /* Orange for 2nd Dozen */
+    color: black;
+}
+
+.maroon-dozen {
+    background-color: maroon; /* Maroon for 3rd Dozen */
+    color: white;
+}

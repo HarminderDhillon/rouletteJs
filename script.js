@@ -16,10 +16,13 @@ function addNewRow(number) {
 
     // Calculate the values based on the drawn number
     const isEven = number % 2 === 0 ? 'Even' : 'Odd';
-    const isRed = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(number) ? 'Red' : 'Black';
+    const isRed = isRedNumber(number) ? 'Red' : 'Black';
     const isSmall = number <= 18 ? 'Small' : 'Big';
-    const dozens = number <= 12 ? '1st Dozen' : number <= 24 ? '2nd Dozen' : '3rd Dozen';
-    const rowPosition = number % 3 === 1 ? '1st Row' : number % 3 === 2 ? '2nd Row' : '3rd Row';
+    const dozens = getDozen(number);
+    const rowPosition = getRowPosition(number);
+
+    // Determine the class for the dozens column based on the dozen
+    const dozenClass = getDozenClass(dozens);
 
     // Create table cells with corresponding CSS classes
     row.innerHTML = `
@@ -27,7 +30,7 @@ function addNewRow(number) {
         <td class="${isEven === 'Even' ? 'even-cell' : 'odd-cell'}">${isEven}</td>
         <td class="${isRed === 'Red' ? 'red-cell' : 'black-cell'}">${isRed}</td>
         <td class="${isSmall === 'Small' ? 'small-cell' : 'big-cell'}">${isSmall}</td>
-        <td class="dozen-cell">${dozens}</td>
+        <td class="${dozenClass}">${dozens}</td>
         <td class="row-cell">${rowPosition}</td>
     `;
 
@@ -38,5 +41,43 @@ function addNewRow(number) {
 // Function to return the appropriate CSS class for the number cell (red, black, or green for 0)
 function getColorClassForNumber(number) {
     if (number === 0) return 'green-cell'; // Green for 0
-    return [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(number) ? 'red-cell' : 'black-cell';
+    return isRedNumber(number) ? 'red-cell' : 'black-cell';
+}
+
+// Function to check if the number is red
+function isRedNumber(number) {
+    return [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36].includes(number);
+}
+
+// Function to return the dozen for the number
+function getDozen(number) {
+    if (number <= 12) {
+        return '1st Dozen';
+    } else if (number <= 24) {
+        return '2nd Dozen';
+    } else {
+        return '3rd Dozen';
+    }
+}
+
+// Function to return the row position for the number
+function getRowPosition(number) {
+    if (number % 3 === 1) {
+        return '1st Row';
+    } else if (number % 3 === 2) {
+        return '2nd Row';
+    } else {
+        return '3rd Row';
+    }
+}
+
+// Function to get the appropriate CSS class for the dozens column
+function getDozenClass(dozens) {
+    if (dozens === '2nd Dozen') {
+        return 'orange-dozen'; // Orange for 2nd Dozen
+    } else if (dozens === '3rd Dozen') {
+        return 'maroon-dozen'; // Maroon for 3rd Dozen
+    } else {
+        return 'yellow-dozen'; // Yellow for 1st Dozen
+    }
 }

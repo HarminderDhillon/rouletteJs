@@ -1,4 +1,4 @@
-/* General body styling (if needed for both parts) */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -47,19 +47,38 @@ h1 {
     color: white;
 }
 
+/* Color classes for board cells */
+.red {
+    background-color: red;
+}
+
+.black {
+    background-color: black;
+}
+
 .cell.zero {
     background-color: green;
     margin-right: 10px;
 }
 
-.cell:nth-child(odd):not(.zero) {
-    background-color: red;
-}
-
-.cell:nth-child(even) {
-    background-color: black;
-}
-
 .cell:hover {
     background-color: darkgray;
 }
+
+/* Dozen cell colors */
+.yellow-dozen {
+    background-color: #ffcc00; /* Yellow for 1st Dozen */
+    color: black;
+}
+
+.orange-dozen {
+    background-color: orange; /* Orange for 2nd Dozen */
+    color: black;
+}
+
+.maroon-dozen {
+    background-color: maroon; /* Maroon for 3rd Dozen */
+    color: white;
+}
+
+/* Other CSS classes remain the same, as you provided earlier */
