@@ -11,6 +11,34 @@ cells.forEach(cell => {
 });
 
 // Function to add a new row to the table with CSS classes for coloring
+// function addNewRow(number) {
+//     const row = document.createElement('tr');
+
+//     // Calculate the values based on the drawn number
+//     const isEven = number % 2 === 0 ? 'Even' : 'Odd';
+//     const isRed = isRedNumber(number) ? 'Red' : 'Black';
+//     const isSmall = number <= 18 ? 'Small' : 'Big';
+//     const dozens = getDozen(number);
+//     const rowPosition = getRowPosition(number);
+
+//     // Determine the class for the dozens column based on the dozen
+//     const dozenClass = getDozenClass(dozens);
+
+//     // Create table cells with corresponding CSS classes
+//     row.innerHTML = `
+//         <td class="number-cell ${getColorClassForNumber(number)}">${number}</td>
+//         <td class="${isEven === 'Even' ? 'even-cell' : 'odd-cell'}">${isEven}</td>
+//         <td class="${isRed === 'Red' ? 'red-cell' : 'black-cell'}">${isRed}</td>
+//         <td class="${isSmall === 'Small' ? 'small-cell' : 'big-cell'}">${isSmall}</td>
+//         <td class="${dozenClass}">${dozens}</td>
+//         <td class="row-cell">${rowPosition}</td>
+//     `;
+
+//     // Add the new row at the top of the table
+//     trackerBody.prepend(row);
+// }
+
+// Function to add a new row to the table with CSS classes for coloring
 function addNewRow(number) {
     const row = document.createElement('tr');
 
@@ -24,18 +52,32 @@ function addNewRow(number) {
     // Determine the class for the dozens column based on the dozen
     const dozenClass = getDozenClass(dozens);
 
+    // Get the row-specific CSS class
+    const rowClass = getRowClass(rowPosition);
+
     // Create table cells with corresponding CSS classes
     row.innerHTML = `
-        <td class="number-cell ${getColorClassForNumber(number)}">${number}</td>
+        <td class="number-cell ${getColorClassForNumber(number)} ${rowClass}">${number}</td>
         <td class="${isEven === 'Even' ? 'even-cell' : 'odd-cell'}">${isEven}</td>
         <td class="${isRed === 'Red' ? 'red-cell' : 'black-cell'}">${isRed}</td>
         <td class="${isSmall === 'Small' ? 'small-cell' : 'big-cell'}">${isSmall}</td>
         <td class="${dozenClass}">${dozens}</td>
-        <td class="row-cell">${rowPosition}</td>
+        <td class="${rowClass}">${rowPosition}</td>
     `;
 
     // Add the new row at the top of the table
     trackerBody.prepend(row);
+}
+
+// Function to get the appropriate CSS class for the row
+function getRowClass(rowPosition) {
+    if (rowPosition === '1st Row') {
+        return 'first-row'; // Light red for 1st Row
+    } else if (rowPosition === '2nd Row') {
+        return 'second-row'; // Light blue for 2nd Row
+    } else {
+        return 'third-row'; // Light green for 3rd Row
+    }
 }
 
 // Function to return the appropriate CSS class for the number cell (red, black, or green for 0)

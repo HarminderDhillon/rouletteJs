@@ -81,4 +81,31 @@ h1 {
     color: white;
 }
 
-/* Other CSS classes remain the same, as you provided earlier */
+/* Add these styles for row-specific colors */
+.first-row {
+    background-color: #ff9999; /* Light red for 1st Row */
+    color: black;
+}
+
+.second-row {
+    background-color: #9999ff; /* Light blue for 2nd Row */
+    color: black;
+}
+
+.third-row {
+    background-color: #99ff99; /* Light green for 3rd Row */
+    color: black;
+}
+
+/* Add hover effect for the new row styles */
+.cell.first-row:hover {
+    background-color: #ff6666;
+}
+
+.cell.second-row:hover {
+    background-color: #6666ff;
+}
+
+.cell.third-row:hover {
+    background-color: #66ff66;
+}
