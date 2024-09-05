@@ -1,11 +1,25 @@
+/* Set the background to black and text color to white */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
     text-align: center;
+    background-color: black; /* Black background */
+    color: white; /* White text */
 }
 
+/* Header styling */
 h1 {
-    color: #333;
+    color: #fff; /* White color for the header */
+}
+
+#roulette-board-wrapper {
+    border: 3px solid #fff; /* White border */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    width: fit-content;
+    margin: 0 auto; /* Center the board horizontally */
+    background-color: #222; /* Dark background for the board */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6); /* Drop shadow for effect */
 }
 
 #roulette-board {
@@ -31,14 +45,16 @@ h1 {
     cursor: pointer;
     border-radius: 8px;
     font-weight: bold;
-    color: white;
+    color: white; /* White text color */
 }
 
+/* "0" should be on the left of the second row */
 .cell.zero {
     background-color: green;
+    margin-right: 10px; /* Pushes the "0" to the left a bit */
 }
 
-.cell:nth-child(odd) {
+.cell:nth-child(odd):not(.zero) {
     background-color: red;
 }
 
@@ -47,24 +63,29 @@ h1 {
 }
 
 .cell:hover {
-    background-color: darkgray;
+    background-color: darkgray; /* Dark gray on hover */
 }
 
+/* Table styling */
 table {
     width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid #ccc;
+    background-color: #333; /* Dark background for the table */
+    color: white; /* White text in the table */
+    border: 1px solid #444; /* Darker border */
 }
 
 th, td {
     padding: 10px;
     text-align: center;
+    border: 1px solid #444; /* Darker border for cells */
 }
 
 #tracker-body tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #444; /* Dark gray for even rows */
+}
+
+#tracker-body tr:nth-child(odd) {
+    background-color: #555; /* Slightly lighter for odd rows */
 }
