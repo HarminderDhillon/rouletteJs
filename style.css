@@ -17,7 +17,7 @@ h1 {
     padding: 20px;
     border-radius: 15px; /* Rounded corners */
     width: fit-content;
-    margin: 0 auto; /* Center the board horizontally */
+    margin: 0 auto 40px auto; /* Added bottom margin of 40px */
     background-color: #222; /* Dark background for the board */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6); /* Drop shadow for effect */
 }
@@ -82,6 +82,7 @@ th, td {
     border: 1px solid #444; /* Darker border for cells */
 }
 
+/* Alternating row colors for the table body */
 #tracker-body tr:nth-child(even) {
     background-color: #444; /* Dark gray for even rows */
 }
