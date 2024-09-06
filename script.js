@@ -5,43 +5,29 @@ const cells = document.querySelectorAll('.cell');
 // Add event listeners to each cell on the roulette board
 cells.forEach(cell => {
     cell.addEventListener('click', function() {
-        const number = parseInt(this.textContent);
-        addNewRow(number);
+        const string = this.textContent.trim();
+        
+        addNewRow(string);
     });
 });
 
 // Function to add a new row to the table with CSS classes for coloring
-// function addNewRow(number) {
-//     const row = document.createElement('tr');
-
-//     // Calculate the values based on the drawn number
-//     const isEven = number % 2 === 0 ? 'Even' : 'Odd';
-//     const isRed = isRedNumber(number) ? 'Red' : 'Black';
-//     const isSmall = number <= 18 ? 'Small' : 'Big';
-//     const dozens = getDozen(number);
-//     const rowPosition = getRowPosition(number);
-
-//     // Determine the class for the dozens column based on the dozen
-//     const dozenClass = getDozenClass(dozens);
-
-//     // Create table cells with corresponding CSS classes
-//     row.innerHTML = `
-//         <td class="number-cell ${getColorClassForNumber(number)}">${number}</td>
-//         <td class="${isEven === 'Even' ? 'even-cell' : 'odd-cell'}">${isEven}</td>
-//         <td class="${isRed === 'Red' ? 'red-cell' : 'black-cell'}">${isRed}</td>
-//         <td class="${isSmall === 'Small' ? 'small-cell' : 'big-cell'}">${isSmall}</td>
-//         <td class="${dozenClass}">${dozens}</td>
-//         <td class="row-cell">${rowPosition}</td>
-//     `;
-
-//     // Add the new row at the top of the table
-//     trackerBody.prepend(row);
-// }
-
-// Function to add a new row to the table with CSS classes for coloring
-function addNewRow(number) {
+function addNewRow(string) {
     const row = document.createElement('tr');
 
+if (string === '0' || string === '00') {
+        // For 0 or 00, leave specific cells N/A and use grey color
+        const number = parseInt(string);
+        row.innerHTML = `
+            <td class="number-cell ${getColorClassForNumber(number)}">${string}</td>
+            <td class="">N/A</td>
+            <td class="">N/A</td>
+            <td class="">N/A</td>
+            <td class="">N/A</td>
+            <td class="">N/A</td>
+        `;
+    } else {
+        const number = parseInt(string);
     // Calculate the values based on the drawn number
     const isEven = number % 2 === 0 ? 'Even' : 'Odd';
     const isRed = isRedNumber(number) ? 'Red' : 'Black';
@@ -64,6 +50,8 @@ function addNewRow(number) {
         <td class="${dozenClass}">${dozens}</td>
         <td class="${rowClass}">${rowPosition}</td>
     `;
+}
+
 
     // Add the new row at the top of the table
     trackerBody.prepend(row);
