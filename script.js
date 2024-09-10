@@ -25,6 +25,7 @@ if (string === '0' || string === '00') {
             <td class="">N/A</td>
             <td class="">N/A</td>
             <td class="">N/A</td>
+            <td class="">N/A</td>
         `;
     } else {
         const number = parseInt(string);
@@ -34,6 +35,8 @@ if (string === '0' || string === '00') {
     const isSmall = number <= 18 ? 'Small' : 'Big';
     const dozens = getDozen(number);
     const rowPosition = getRowPosition(number);
+    const specialBets = getSpecialBets(number);
+    const specialBetsClass = getSpecialBetsClass(number);
 
     // Determine the class for the dozens column based on the dozen
     const dozenClass = getDozenClass(dozens);
@@ -49,6 +52,7 @@ if (string === '0' || string === '00') {
         <td class="${isSmall === 'Small' ? 'small-cell' : 'big-cell'}">${isSmall}</td>
         <td class="${dozenClass}">${dozens}</td>
         <td class="${rowClass}">${rowPosition}</td>
+        <td class="${specialBetsClass}">${specialBets}</td>
     `;
 }
 
@@ -109,5 +113,31 @@ function getDozenClass(dozens) {
         return 'maroon-dozen'; // Maroon for 3rd Dozen
     } else {
         return 'yellow-dozen'; // Yellow for 1st Dozen
+    }
+}
+
+// Function to return the special bets for the number
+function getSpecialBets(number) {
+    if ([22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25].includes(number)) {
+        return 'Voisins du Zéro';
+    } else if ([5, 10, 11, 13, 16, 23, 24, 27, 33, 36, 30, 8].includes(number)) {
+        return 'Tiers du Cylindre';
+    } else if ([1, 20, 14, 31, 9, 17, 34, 6].includes(number)) {
+        return 'Orphelins';
+    } else {
+        return 'N/A';
+    }
+}
+
+// Function to return the special bets classfor the number
+function getSpecialBetsClass(number) {
+    if ([22, 18, 29, 7, 28, 12, 35, 3, 26, 0, 32, 15, 19, 4, 21, 2, 25].includes(number)) {
+        return 'voisins-du-Zéro';
+    } else if ([5, 10, 11, 13, 16, 23, 24, 27, 33, 36, 30, 8].includes(number)) {
+        return 'tiers-du-Cylindre';
+    } else if ([1, 20, 14, 31, 9, 17, 34, 6].includes(number)) {
+        return 'orphelins';
+    } else {
+        return 'green-cell';
     }
 }

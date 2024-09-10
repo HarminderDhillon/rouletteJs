@@ -74,7 +74,7 @@ th, td {
 }
 
 .big-cell {
-    background-color: #66ff99; /* Green for Big */
+    background-color: #1c6f37; /* Green for Big */
     color: white;
 }
 
@@ -107,7 +107,7 @@ th, td {
 }
 
 .orange-dozen {
-    background-color: orange; /* Orange for 2nd Dozen */
+    background-color: rgb(212, 139, 4); /* Orange for 2nd Dozen */
     color: black;
 }
 
@@ -149,4 +149,19 @@ th, td {
 .zero-cell {
     background-color: grey;
     color: white;
+}
+
+.voisins-du-Zéro {
+    background-color: #e648488f; /* Light red for 1st Row */
+    color: black;
+}
+
+.tiers-du-Cylindre {
+    background-color: #72729c; /* Light blue for 2nd Row */
+    color: black;
+}
+
+.orphelins {
+    background-color: #067206; /* Light green for 3rd Row */
+    color: black;
 }
